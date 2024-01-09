@@ -1,0 +1,149 @@
+#!/bin/bash
+# ----------------------------------------------------------------------------
+#          FILE:  .alacritty.toml
+#   DESCRIPTION:  Alacritty configuration file
+#        AUTHOR:  R
+# ----------------------------------------------------------------------------
+
+
+# General ---------------------------------------------------------------------
+# import = ["<string>",]
+
+# [shell]
+# program = "/bin/zsh"
+# args = ["-l"]
+# ----------------------------------------------------------------------------
+
+
+# Variables -------------------------------------------------------------------
+[env]
+# VAR_NAME = "VAR_VALUE"
+TERM = "xterm-256color"
+# ----------------------------------------------------------------------------
+
+
+# Window ----------------------------------------------------------------------
+[window]
+
+# dimensions = { column = 800, lines = 800 }
+# position = { x = 200, y = 200 }
+padding = { x = 24, y = 12 }
+dynamic_padding = true
+# decorations = "None"
+# opacity = 0.85
+blur = true
+# startup_mode = "Windowed" | "Maximized" | "Fullscreen" | "SimpleFullscreen"
+startup_mode = "Fullscreen"
+decorations_theme_variant = "Dark"
+resize_increments = true
+# ----------------------------------------------------------------------------
+
+
+# Scrolling -------------------------------------------------------------------
+[scrolling]
+
+# 0 to 100000
+history = 10000
+multiplier = 5
+# ----------------------------------------------------------------------------
+
+
+# Font ------------------------------------------------------------------------
+[font]
+
+normal = { family = "Mononoki Nerd Font", style = "Regular" }
+bold = { style = "Bold" }
+italic = { style = "Italic" }
+bold_italic = { style = "Bold Italic" }
+
+size = 14
+
+offset = { x = 2, y = 2 }
+glyph_offset = { x = 2, y = 2 }
+
+builtin_box_drawing = true
+# ----------------------------------------------------------------------------
+
+
+# Colours ---------------------------------------------------------------------
+# Dracula theme for Alacritty
+# https://draculatheme.com/alacritty
+#
+# Color palette
+# https://spec.draculatheme.com
+[colors.primary]
+
+background = "#282a36"
+foreground = "#f8f8f2"
+bright_foreground = "#ffffff"
+
+[colors.cursor]
+
+text = "#282a36"
+cursor = "#f8f8f2"
+
+[colors.vi_mode_cursor]
+
+text = "CellBackground"
+cursor = "CellForeground"
+
+[colors.selection]
+
+text = "CellForeground"
+background = "#44475a"
+
+[colors.normal]
+
+black = "#21222c"
+red = "#ff5555"
+green = "#50fa7b"
+yellow = "#f1fa8c"
+blue = "#bd93f9"
+magenta = "#ff79c6"
+cyan = "#8be9fd"
+white = "#f8f8f2"
+
+[colors.bright]
+
+black = "#6272a4"
+red = "#ff6e6e"
+green = "#69ff94"
+yellow = "#ffffa5"
+blue = "#d6acff"
+magenta = "#ff92df"
+cyan = "#a4ffff"
+white = "#ffffff"
+
+[colors.search.matches]
+
+foreground = "#44475a"
+background = "#50fa7b"
+
+[colors.search.focused_match]
+
+foreground = "#44475a"
+background = "#ffb86c"
+
+[colors.footer_bar]
+
+background = "#282a36"
+foreground = "#f8f8f2"
+
+[colors.hints.start]
+
+foreground = "#282a36"
+background = "#f1fa8c"
+
+[colors.hints.end]
+
+foreground = "#f1fa8c"
+background = "#282a36"
+# ----------------------------------------------------------------------------
+
+
+# Selection -------------------------------------------------------------------
+[selection]
+
+# semantic_escape_chars = ",│`|:"' ()[]{}<>t"
+save_to_clipboard = true
+# ----------------------------------------------------------------------------
