@@ -1,0 +1,209 @@
+#!/bin/bash
+# ----------------------------------------------------------------------------
+#          FILE:  .rBuntu_aliases
+#   DESCRIPTION:  ubuntu aliases & functions
+#        AUTHOR:  R
+# ----------------------------------------------------------------------------
+
+# Aliases --------------------------------------------------------------------
+# navigation
+alias ~="cd ~"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+# ls
+alias ls="lsd -AFt --group-directories-first --color=auto"
+alias lss="lsd -AFtS --group-directories-first --color=auto"
+alias ll="lsd -AFthl --group-directories-first --color=auto"
+alias lls="lsd -AFthlS --group-directories-first --color=auto"
+alias lt='lsd --tree'
+
+# essentials
+alias -g s="sudo"
+alias ss="sudo service"
+alias rm="sudo rm -rf"
+alias rr="exec $SHELL -l"
+alias q="exit"
+alias c="clear"
+alias -g g="grep"
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
+alias t="tail -F"
+alias h="history | grep"
+alias ct="batcat"
+alias cat="batcat"
+alias -g l="less"
+alias -g n="sudo nano"
+alias -g v="sudo vim"
+alias s="subl"
+alias rc="sudo vim ~/.zshrc"
+alias prc="batcat ~/.zshrc"
+alias grc="batcat ~/.zshrc | grep"
+alias al="sudo vim ~/.rBuntu_aliases"
+alias pal="batcat ~/.rBuntu_aliases"
+alias gal="batcat ~/.rBuntu_aliases | grep"
+alias pp="batcat ~/.profile"
+alias epp="sudo vim ~/.profile"
+alias nrc="sudo vim ~/.nanorc"
+alias pnrc="batcat ~/.nanorc"
+alias gnrc="batcat ~/.nanorc | grep"
+alias vrc="sudo vim ~/.vimrc"
+alias pvrc="batcat ~/.vimrc"
+alias gvrc="batcat ~/.vimrc | grep"
+alias op="nautilus"
+alias boot="reboot"
+alias culprit="sudo lsof | grep"
+alias dirtyport="sudo lsof -n -i"
+alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias lazy="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[a] \" \" CMD[a]/count*100 \"% \" a;}' | grep -v \"./\" | column -c3 -s \" \" -t | sort -nr | nl | head -n20"
+alias sus="systemctl suspend"
+
+# find
+alias f="find"
+alias ff="sudo find . -name"
+alias ffat="sudo find -x / -type f -size +100M"
+alias ffatx="sudo find -x / -type f -size +250M"
+alias ffatxx="sudo find -x / -type f -size +500M"
+alias ffatxxx="sudo find -x / -type f -size +1G"
+
+# update os (ubuntu)
+alias osv="lsb_release -a"
+alias osu="do-release-upgrade -d -f DistUpgradeViewNonInteractive"
+
+# apt
+alias apti="sudo nala install -y"
+alias apts="sudo nala search"
+alias aptl="sudo nala list --installed"
+alias aptr="sudo nala remove -y"
+alias aptu="sudo nala update; sudo nala upgrade -y; sudo nala clean; sudo nala autopurge -y; sudo nala autoremove -y"
+
+# npm
+alias npmi="npm install"
+alias npmid="npm install --save"
+alias npmidd="npm install --save-dev"
+alias npmig="npm install -g"
+alias npmo="npm outdated"
+alias npmu="npm update"
+alias npmw="npm shrinkwrap"
+alias npms="npm search"
+alias npml="npm ls -g"
+alias npmug="npm install npm -g; npm update -g; npm cache clean"
+
+# yarn
+alias yi="yarn install"
+alias yo="yarn outdated"
+alias yu="yarn upgrade"
+alias ygu="yarn global upgrade"
+alias ya="yarn add"
+alias yga="yarn global add"
+alias yad="yarn add --dev"
+alias yr="yarn run"
+alias yrm="yarn remove"
+alias ygrm="yarn global remove"
+alias ych="yarn check --integrity"
+alias ycl="yarn clean"
+alias yl="yarn list"
+alias ygl="yarn global ls"
+
+# pip
+alias pipi="pip install"
+alias pips="pip search"
+alias pipl="pip list"
+alias piplo="pip list -o"
+alias pipu="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U; rm -rf ~/.pip/cache/"
+
+# gems
+alias gemi="yes | gem install"
+alias gems="gem search -r"
+alias geml="gem search -a -l"
+alias gemu="gem update --system; gem update; gem cleanup"
+
+# git
+alias pgc="batcat .git/config"
+alias egc="vim .git/config"
+alias pggc="batcat ~/.gitconfig"
+alias eggc="vim ~/.gitconfig"
+alias ggcc="git clone"
+alias gre="git remote"
+alias grev="git remote -v"
+alias grea="git remote add"
+alias grer="git remote rm"
+alias greall="git_remote_all"
+alias gs="git status"
+alias gb="git branch"
+alias gba="git branch -a"
+alias gbd="git branch -D"
+alias gch="git checkout"
+alias gchp="git checkout -p"
+alias gchd="git checkout -- ."
+alias gcb="git checkout -b"
+alias gchb="git checkout -b"
+alias ga="git add"
+alias gaa="git add ."
+alias gap="git add -p"
+alias gc="git commit"
+alias gcp="git commit -i"
+alias gcm="git commit -m"
+alias gr="git reset"
+alias grp="git reset -p"
+alias grs="git reset --soft"
+alias grh="git reset --hard"
+alias gf="git fetch"
+alias gfa="git fetch --all"
+alias gp="git pull"
+alias gpl="git pull"
+alias gpll="git pull"
+alias pll="git pull"
+alias pull="git pull"
+alias gph="git push"
+alias gps="git push"
+alias gpsh="git push"
+alias psh="git push"
+alias push="git push"
+alias gpp="git pull; git push"
+alias gd="git diff"
+alias gdt="git difftool"
+alias gm="git merge"
+alias gmt="git mergetool"
+alias gk="gitk"
+alias gsl="git stash list"
+alias gssp="git stash save -p"
+alias gss="git add .; git stash save"
+alias gsp="git stash pop"
+alias gsa="git stash apply"
+alias gsd="git stash drop"
+alias grm="git rm -r --cached"
+alias gdcl="git clean -f --dry-run"
+alias gdcld="git clean -fd --dry-run"
+alias gcl="git clean -f"
+alias gcld="git clean -fd"
+alias gclp="git clean --interactive"
+alias glog="git log --decorate --all --oneline --graph"
+alias gloga="git log --all --pretty=format:'%C(yellow)%h%Creset %C(bold cyan)%<(18)%an%Creset %C(bold black)%<(12)%cr%Creset %C(bold red)%d%Creset %<(50,trunc)%s'"
+
+# dev
+alias eh="sudo vim /etc/hosts"
+alias node="nodejs"
+alias es="eslint client server --fix --ignore-path .gitignore"
+
+# fun
+alias m="tmatrix"
+alias nf="neofetch"
+alias top="bpytop"
+alias htop="bpytop"
+# ----------------------------------------------------------------------------
+
+
+# Functions ------------------------------------------------------------------
+# git
+git_remote_all()
+{
+    while read -r name url method
+    do git config --add remote.all.url "$url"
+    done < <(git remote -v | awk '!/^all/ && /push/')
+}
+# ----------------------------------------------------------------------------
+
